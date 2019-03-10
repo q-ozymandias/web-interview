@@ -39,6 +39,15 @@ header {
   &:hover {
     background: darken($positive, 5%);
   }
+
+  &.disabled {
+    cursor: not-allowed;
+    background: $secondary-light;
+
+    &:hover {
+    background: $secondary-light;
+    }
+  }
 }
 
 .secondary-btn {
@@ -259,6 +268,12 @@ header {
     border: 1px solid $secondary-dark;
     border-radius: 8px;
     box-sizing: border-box;
+  }
+
+  .booking-msg {
+    display: block;
+    margin: 16px 0;
+    color: $secondary-dark;
   }
 }
 

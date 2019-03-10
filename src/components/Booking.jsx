@@ -20,6 +20,7 @@ class Booking extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.chooseTimeSlot = this.chooseTimeSlot.bind(this);
+    this.chooseTimeSlotFromModal = this.chooseTimeSlotFromModal.bind(this);
     this.bookAppointment = this.bookAppointment.bind(this);
   }
 
@@ -46,8 +47,12 @@ class Booking extends Component {
   }
 
   chooseTimeSlot(e) {
-    const value = e.target.value;
+    const value = e.currentTarget.value;
     this.setState({ chosenTimeSlot: value });
+  }
+
+  chooseTimeSlotFromModal(value) {
+    this.setState({ chosenTimeSlot: value, modalOpen: false });
   }
 
   async bookAppointment() {
@@ -67,7 +72,7 @@ class Booking extends Component {
           <TimePickerModal
             appointments={this.state.otherSloths}
             closeModal={this.closeModal}
-            chooseTimeSlot={this.chooseTimeSlot}
+            chooseTimeSlot={this.chooseTimeSlotFromModal}
           />}
         <div className="app-main__breadcrumbs"></div>
         <div className="app-main__heading">
@@ -106,7 +111,21 @@ class Booking extends Component {
             className="booking-notes"
             onChange={this.onTextChange}
           />
-          <button disabled={!this.state.chosenTimeSlot} className="primary-btn" onClick={this.bookAppointment}> Book</button>
+          <div>
+            {this.state.chosenTimeSlot &&
+              <span className="booking-msg">Book an appointment for the {moment(this.state.chosenTimeSlot).format('MMMM Do, h:mm a')}?</span>
+            }
+            {!this.state.chosenTimeSlot &&
+              <span className="booking-msg">Please Choose an available time slot.</span>
+            }
+          </div>
+          <button
+            disabled={!this.state.chosenTimeSlot}
+            onClick={this.bookAppointment}
+            className={`primary-btn ${!this.state.chosenTimeSlot ? 'disabled' : ''}`}
+          >
+            Book
+          </button>
         </div>
       </div>
     )

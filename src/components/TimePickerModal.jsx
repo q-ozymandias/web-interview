@@ -12,8 +12,7 @@ class TimePickerModal extends Component {
               return (
                 <li
                   className="slot"
-                  onClick={this.props.chooseTimeSlot}
-                  value={slot}
+                  onClick={() => this.props.chooseTimeSlot(slot)}
                   key={index}>{moment(slot).format('MMMM Do, h:mm a')}
                 </li>
               )

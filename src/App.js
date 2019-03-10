@@ -16,18 +16,13 @@ class App extends Component {
       userName: '',
       userInitials: '',
       userId: null,
-      availableSlots: [],
-      appointments: [],
     };
     this.setUpUser = this.setUpUser.bind(this);
-    this.setUpAppointments = this.setUpAppointments.bind(this);
   }
 
   async componentDidMount() {
     const userData = await request('users/1', 'GET');
-    const appointments = await request('appointments', 'GET');
     this.setUpUser(userData);
-    this.setUpAppointments(appointments);
   }
 
   setUpUser(userData) {
@@ -40,10 +35,6 @@ class App extends Component {
     this.setState({ userName, userInitials, userId: userData.id })
   }
 
-  setUpAppointments(appointments) {
-    this.setState({ appointments });
-  }
-
   render() {
     return (
       <Router>
@@ -54,11 +45,11 @@ class App extends Component {
           }
           />
           <Route path="/appointments" exact render={
-            (props) => <AppointmentsOverview {...props} userName={this.state.userName} appointments={this.state.appointments} />
+            (props) => <AppointmentsOverview {...props} userName={this.state.userName} />
           }
           />
           <Route path="/booking" exact render={
-            (props) => <Booking {...props} userName={this.state.userName} availableSlots={this.state.availableSlots} userId={this.state.userId} />
+            (props) => <Booking {...props} userName={this.state.userName} userId={this.state.userId} />
           }
           />
         </div>

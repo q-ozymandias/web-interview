@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import request from '../api/request';
 import videoSVG from '../images/video-solid.svg';
 import bookAppSVG from '../images/plus-solid.svg';
 
 class AppointmentsOverview extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      appointments: []
+    };
+  }
+
+  async componentDidMount() {
+    const appointments = await request('appointments', 'GET');
+    this.setState({ appointments });
+  }
+
   render() {
     return (
       <div className="app-main">
@@ -20,7 +33,7 @@ class AppointmentsOverview extends Component {
         <div className="app-main__body">
           <h2>Upcoming</h2>
           <ul className="app-main__menu">
-            {this.props.appointments && this.props.appointments.map((appointment, index) => {
+            {this.state.appointments && this.state.appointments.map((appointment, index) => {
               return (
                 <li className="app-main__menu-link" key={index}>
                   <Link to="/" className="appointment-link">

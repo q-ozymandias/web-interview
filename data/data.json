@@ -98,6 +98,13 @@
       "notes": "I would like to make an appointment",
       "type": "GP appointment",
       "id": 3
+    },
+    {
+      "userId": 1,
+      "dateTime": 2019,
+      "notes": "New booking",
+      "type": "GP appointment",
+      "id": 4
     }
   ],
   "family-members": [
