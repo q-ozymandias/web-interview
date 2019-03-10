@@ -4,6 +4,9 @@ import videoSVG from '../images/video-solid.svg';
 import bookAppSVG from '../images/plus-solid.svg';
 
 class AppointmentsOverview extends Component {
+  componentDidUpdate() {
+    console.log(this.props)
+  }
   render() {
     return (
       <div className="app-main">

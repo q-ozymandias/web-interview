@@ -33,7 +33,7 @@ class Booking extends Component {
           <span className="profile-pic">
             <img src={userSVG} alt="User Profile SVG" style={{ height: 30 }} />
           </span>
-          <span className="profile-name">Jane Doe</span>
+          <span className="profile-name">{this.props.userName}</span>
         </div>
         <div className="app-main__body">
           <h2>

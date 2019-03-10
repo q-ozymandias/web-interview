@@ -26,7 +26,7 @@ class Header extends Component {
             Family Members
           </Link>
         </nav>
-        <span className="user-profile">JD</span>
+        <span className="user-profile">{this.props.userInitials}</span>
       </header>
     )
   }

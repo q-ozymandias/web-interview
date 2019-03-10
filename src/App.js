@@ -13,7 +13,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: ''
+      userName: '',
+      userInitials: '',
     };
     this.setUpUser = this.setUpUser.bind(this);
   }
@@ -24,17 +25,23 @@ class App extends Component {
   }
 
   setUpUser(userData) {
-    console.log(userData);
+    const { firstName, lastName } = userData;
+    const userName = [firstName, lastName].join(' ');
+    const userInitials = [firstName, lastName].map((p) => {
+      if (p) return p[0];
+      return undefined;
+    }).join('');
+    this.setState({ userName, userInitials })
   }
 
   render() {
     return (
       <Router>
         <div className="app">
-          <Header />
-          <Route path="/" exact component={Home} />
-          <Route path="/appointments" exact component={AppointmentsOverview} />
-          <Route path="/booking" exact component={Booking} />
+          <Header userInitials={this.state.userInitials} />
+          <Route path="/" exact render={(props) => <Home {...props} userName={this.state.userName} />} />
+          <Route path="/appointments" exact render={(props) => <AppointmentsOverview {...props} userName={this.state.userName} />} />
+          <Route path="/booking" exact render={(props) => <Booking {...props} userName={this.state.userName} />} />
         </div>
       </Router >
     )

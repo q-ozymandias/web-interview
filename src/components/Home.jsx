@@ -14,7 +14,7 @@ class Home extends Component {
           </span>
         </div>
         <div className="app-main__heading">
-          <h1>Jane Doe</h1>
+          <h1>{this.props.userName}</h1>
         </div>
         <div className="app-main__body">
           <h2>Clinical Records</h2>
