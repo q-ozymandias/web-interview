@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
+import userSVG from '../images/user-solid.svg';
 
 class Home extends Component {
   render() {
     return (
-      <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto veniam quo alias hic reprehenderit eveniet commodi ab esse pariatur, nihil sunt voluptates fugit. Odit, repellat porro animi ipsum dolores facilis!</div>
+      <div className="app-home">
+        <div className="app-home__profile-pic">
+          <span className="profile-pic">
+            <img src={userSVG} alt="User Profile SVG" style={{ height: 30 }} />
+          </span>
+        </div>
+        <div className="app-home__heading">
+          <h1>Jane Doe</h1>
+
+        </div>
+      </div>
     )
   }
 }

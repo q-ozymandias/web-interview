@@ -19,7 +19,7 @@ class Header extends Component {
             <img src={calendarSVG} alt="View Appointments SVG" style={{ height: 20 }} className="app-nav__icon" />
             Appointments
           </Link>
-          <Link to="/" className="app-nav__link">
+          <Link to="/" className="app-nav__link disabled" disabled>
             <img src={userPlusSVG} alt="Family Members SVG" style={{ height: 20 }} className="app-nav__icon" />
             Family Members
           </Link>
