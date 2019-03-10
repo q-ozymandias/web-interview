@@ -15,13 +15,21 @@ class App extends Component {
     this.state = {
       userName: '',
       userInitials: '',
+      availableSlots: [],
+      appointments: [],
     };
     this.setUpUser = this.setUpUser.bind(this);
+    this.setUpSlots = this.setUpSlots.bind(this);
+    this.setUpAppointments = this.setUpAppointments.bind(this);
   }
 
   async componentDidMount() {
     const userData = await request('users/1', 'GET');
+    const availableSlots = await request('availableSlots', 'GET');
+    const appointments = await request('appointments', 'GET');
     this.setUpUser(userData);
+    this.setUpSlots(availableSlots);
+    this.setUpAppointments(appointments);
   }
 
   setUpUser(userData) {
@@ -34,14 +42,22 @@ class App extends Component {
     this.setState({ userName, userInitials })
   }
 
+  setUpSlots(availableSlots) {
+    this.setState({ availableSlots });
+  }
+
+  setUpAppointments(appointments) {
+    this.setState({ appointments });
+  }
+
   render() {
     return (
       <Router>
         <div className="app">
           <Header userInitials={this.state.userInitials} />
           <Route path="/" exact render={(props) => <Home {...props} userName={this.state.userName} />} />
-          <Route path="/appointments" exact render={(props) => <AppointmentsOverview {...props} userName={this.state.userName} />} />
-          <Route path="/booking" exact render={(props) => <Booking {...props} userName={this.state.userName} />} />
+          <Route path="/appointments" exact render={(props) => <AppointmentsOverview {...props} userName={this.state.userName} appointments={this.state.appointments} />} />
+          <Route path="/booking" exact render={(props) => <Booking {...props} userName={this.state.userName} availableSlots={this.state.availableSlots} />} />
         </div>
       </Router >
     )

@@ -216,6 +216,7 @@ header {
       &__title {
         color: $secondary-extra-dark;
         font-weight: 600;
+        margin-bottom: $gutter-size;
       }
 
       &__details {
