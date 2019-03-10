@@ -10,6 +10,10 @@ async function request(endpoint, method, data) {
     },
     body: data ? JSON.stringify(data) : undefined,
   });
+  /**
+   * I added error response Objects and am throwing an Error if something goes wrong,
+   * but this can definitely be handled better.
+   */
   if (!response.ok) {
     if (response.status >= 500) {
       return {

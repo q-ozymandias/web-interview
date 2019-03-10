@@ -121,6 +121,13 @@ class Booking extends Component {
               <span className="booking-msg">Please Choose an available time slot.</span>
             }
           </div>
+          {
+            /** 
+              * ToDo: Currently there is nothing happening after pressing the button,
+              * that would indicate a successful booking to the user.
+              * Also: the chosen Time Slot should get removed from the available slots.
+            */
+          }
           <button
             disabled={!this.state.chosenTimeSlot}
             onClick={this.bookAppointment}
