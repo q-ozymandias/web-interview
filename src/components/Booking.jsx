@@ -22,12 +22,12 @@ class Booking extends Component {
     this.chooseTimeSlot = this.chooseTimeSlot.bind(this);
     this.bookAppointment = this.bookAppointment.bind(this);
   }
-  componentDidUpdate(prevProps) {
-    if (!prevProps.availableSlots.length && this.props.availableSlots.length) {
-      const closestSlots = this.props.availableSlots.slice(0, 3);
-      const otherSloths = this.props.availableSlots.slice(4);
-      this.setState({ closestSlots, otherSloths });
-    }
+
+  async componentDidMount() {
+    const availableSlots = await request('availableSlots', 'GET');
+    const closestSlots = availableSlots.slice(0, 3);
+    const otherSloths = availableSlots.slice(4);
+    this.setState({ closestSlots, otherSloths });
   }
 
   onTextChange(e) {

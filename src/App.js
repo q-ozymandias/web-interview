@@ -20,16 +20,13 @@ class App extends Component {
       appointments: [],
     };
     this.setUpUser = this.setUpUser.bind(this);
-    this.setUpSlots = this.setUpSlots.bind(this);
     this.setUpAppointments = this.setUpAppointments.bind(this);
   }
 
   async componentDidMount() {
     const userData = await request('users/1', 'GET');
-    const availableSlots = await request('availableSlots', 'GET');
     const appointments = await request('appointments', 'GET');
     this.setUpUser(userData);
-    this.setUpSlots(availableSlots);
     this.setUpAppointments(appointments);
   }
 
@@ -41,10 +38,6 @@ class App extends Component {
       return undefined;
     }).join('');
     this.setState({ userName, userInitials, userId: userData.id })
-  }
-
-  setUpSlots(availableSlots) {
-    this.setState({ availableSlots });
   }
 
   setUpAppointments(appointments) {
