@@ -22,8 +22,8 @@ class AppointmentsOverview extends Component {
           <ul className="app-main__menu">
             {this.props.appointments && this.props.appointments.map((appointment, index) => {
               return (
-                <li className="app-main__menu-link">
-                  <Link to="/" className="appointment-link" key={index}>
+                <li className="app-main__menu-link" key={index}>
+                  <Link to="/" className="appointment-link">
                     <span className="appointment-img">
                       <img src={videoSVG} alt="" style={{ height: 30 }} />
                     </span>
