@@ -20,19 +20,20 @@ class AppointmentsOverview extends Component {
         <div className="app-main__body">
           <h2>Upcoming</h2>
           <ul className="app-main__menu">
-            <li className="app-main__menu-link">
-              {this.props.appointments && this.props.appointments.map((appointment, index) => {
-                return <Link to="/" className="appointment-link" key={index}>
-                  <span className="appointment-img">
-                    <img src={videoSVG} alt="" style={{ height: 30 }} />
-                  </span>
-                  <div className="link-text">
-                    <span className="link-text__title">{appointment.type}</span>
-                    <span className="link-text__details">{moment(appointment.dateTime).format('MMMM Do, h:mm a')}</span>
-                  </div>
-                </Link>
-              })}
-            </li>
+            {this.props.appointments && this.props.appointments.map((appointment, index) => {
+              return (
+                <li className="app-main__menu-link">
+                  <Link to="/" className="appointment-link" key={index}>
+                    <span className="appointment-img">
+                      <img src={videoSVG} alt="" style={{ height: 30 }} />
+                    </span>
+                    <div className="link-text">
+                      <span className="link-text__title">{appointment.type}</span>
+                      <span className="link-text__details">{moment(appointment.dateTime).format('MMMM Do, h:mm a')}</span>
+                    </div>
+                  </Link>
+                </li>)
+            })}
           </ul>
         </div>
       </div>
