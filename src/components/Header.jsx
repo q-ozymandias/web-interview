@@ -9,13 +9,15 @@ class Header extends Component {
   render() {
     return (
       <header className="app-header">
-        <img src={logo} className="app-logo" alt="logo" />
+        <Link to="/" className="app-nav__link">
+          <img src={logo} className="app-logo" alt="logo" />
+        </Link>
         <nav className="app-nav">
           <Link to="/" className="app-nav__link">
             <img src={calendarPlusSVG} alt="Book Appointment SVG" style={{ height: 20 }} className="app-nav__icon" />
             Book
           </Link>
-          <Link to="/" className="app-nav__link">
+          <Link to="/appointments" className="app-nav__link">
             <img src={calendarSVG} alt="View Appointments SVG" style={{ height: 20 }} className="app-nav__icon" />
             Appointments
           </Link>

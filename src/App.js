@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Home from './components/Home'
+import AppointmentsOverview from './components/AppointmentsOverview'
 
 import { API_ENDPOINT } from './config'
 
@@ -25,6 +26,7 @@ class App extends Component {
         <div className="app">
           <Header />
           <Route path="/" exact component={Home} />
+          <Route path="/appointments" exact component={AppointmentsOverview} />
         </div>
       </Router >
     )

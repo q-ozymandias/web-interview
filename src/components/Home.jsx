@@ -7,26 +7,26 @@ import userRegSVG from '../images/user-regular.svg';
 class Home extends Component {
   render() {
     return (
-      <div className="app-home">
-        <div className="app-home__profile-pic">
+      <div className="app-main">
+        <div className="app-main__profile-pic">
           <span className="profile-pic">
             <img src={userSVG} alt="User Profile SVG" style={{ height: 30 }} />
           </span>
         </div>
-        <div className="app-home__heading">
+        <div className="app-main__heading">
           <h1>Jane Doe</h1>
         </div>
-        <div className="app-home__body">
+        <div className="app-main__body">
           <h2>Clinical Records</h2>
-          <ul className="app-home__menu">
-            <li className="app-home__menu-link">
-              <Link to="/">
+          <ul className="app-main__menu">
+            <li className="app-main__menu-link">
+              <Link to="/appointments" className="default-link">
                 <img src={calendarSVG} alt="" className="link-img" style={{ height: 16 }} />
                 <span className="link-text">Appointments</span>
               </Link>
             </li>
-            <li className="app-home__menu-link">
-              <Link to="/">
+            <li className="app-main__menu-link">
+              <Link to="/" className="default-link">
                 <img src={userRegSVG} alt="" className="link-img" style={{ height: 16 }} />
                 <span className="link-text">Personal Details</span>
               </Link>
