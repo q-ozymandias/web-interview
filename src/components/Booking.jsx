@@ -11,7 +11,10 @@ class Booking extends Component {
     this.state = {
       closestAppointments: [],
       otherAppointments: [],
+      modalOpen: false,
     };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
   componentDidUpdate(prevProps) {
     if (!prevProps.availableSlots.length && this.props.availableSlots.length) {
@@ -21,10 +24,24 @@ class Booking extends Component {
     }
   }
 
+  openModal() {
+    document.body.classList.add('modal-open');
+    this.setState({ modalOpen: true });
+  }
+
+  closeModal() {
+    document.body.classList.remove('modal-open');
+    this.setState({ modalOpen: false });
+  }
+
   render() {
     return (
       <div className="app-main">
-        {false && <TimePickerModal />}
+        {this.state.modalOpen &&
+          <TimePickerModal
+            appointments={this.state.otherAppointments}
+            closeModal={this.closeModal}
+          />}
         <div className="app-main__breadcrumbs"></div>
         <div className="app-main__heading">
           <h1>New Appointment</h1>
@@ -43,7 +60,7 @@ class Booking extends Component {
             {this.state.closestAppointments && this.state.closestAppointments.map((appointment, index) => {
               return <button className="secondary-btn active" key={index}>{moment(appointment).format('MMMM Do, h:mm a')}</button>
             })}
-            <button className="secondary-btn">Another Time</button>
+            <button className="secondary-btn" onClick={this.openModal}>Another Time</button>
           </div>
           <h2>
             <img src={notesSVG} alt="Notes SVG" className="heading-imgs" style={{ height: 16 }} />
