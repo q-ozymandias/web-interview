@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import Header from './components/Header'
 
-import logo from './logo.png'
 import { API_ENDPOINT } from './config'
 
 import './App.scss'
@@ -20,9 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <header className="app-header">
-          <img src={logo} className="app-logo" alt="logo" />
-        </header>
+        <Header />
         <h1>This is where your code goes!</h1>
       </div>
     )
