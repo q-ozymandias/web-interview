@@ -16,6 +16,7 @@ class Booking extends Component {
       notes: '',
       modalOpen: false,
     };
+    this.onTextChange = this.onTextChange.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.chooseTimeSlot = this.chooseTimeSlot.bind(this);
@@ -27,6 +28,11 @@ class Booking extends Component {
       const otherSloths = this.props.availableSlots.slice(4);
       this.setState({ closestSlots, otherSloths });
     }
+  }
+
+  onTextChange(e) {
+    const value = e.target.value;
+    this.setState({ notes: value })
   }
 
   openModal() {
@@ -94,7 +100,12 @@ class Booking extends Component {
           <h2>
             <img src={notesSVG} alt="Notes SVG" className="heading-imgs" style={{ height: 16 }} />
             Notes</h2>
-          <textarea name="" id="" cols="30" rows="10" className="booking-notes"></textarea>
+          <textarea
+            cols="30"
+            rows="10"
+            className="booking-notes"
+            onChange={this.onTextChange}
+          />
           <button disabled={!this.state.chosenTimeSlot} className="primary-btn" onClick={this.bookAppointment}> Book</button>
         </div>
       </div>
