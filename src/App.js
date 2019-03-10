@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
       userName: '',
       userInitials: '',
+      userAvatar: '',
       userId: null,
     };
     this.setUpUser = this.setUpUser.bind(this);
@@ -32,7 +33,12 @@ class App extends Component {
       if (p) return p[0];
       return undefined;
     }).join('');
-    this.setState({ userName, userInitials, userId: userData.id })
+    this.setState({
+      userName,
+      userInitials,
+      userId: userData.id,
+      userAvatar: userData.avatar,
+    })
   }
 
   render() {
@@ -41,15 +47,15 @@ class App extends Component {
         <div className="app">
           <Header userInitials={this.state.userInitials} />
           <Route path="/" exact render={
-            (props) => <Home {...props} userName={this.state.userName} />
+            (props) => <Home {...props} userName={this.state.userName} userAvatar={this.state.userAvatar} />
+          }
+          />
+          <Route path="/booking" exact render={
+            (props) => <Booking {...props} userName={this.state.userName} userId={this.state.userId} userAvatar={this.state.userAvatar} />
           }
           />
           <Route path="/appointments" exact render={
             (props) => <AppointmentsOverview {...props} userName={this.state.userName} />
-          }
-          />
-          <Route path="/booking" exact render={
-            (props) => <Booking {...props} userName={this.state.userName} userId={this.state.userId} />
           }
           />
         </div>

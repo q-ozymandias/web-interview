@@ -79,9 +79,11 @@ class Booking extends Component {
           <h1>New Appointment</h1>
         </div>
         <div className="app-main__profile-pic">
-          <span className="profile-pic">
-            <img src={userSVG} alt="User Profile SVG" style={{ height: 30 }} />
-          </span>
+          {this.props.userAvatar &&
+            <span className="profile-pic">
+              <img src={this.props.userAvatar} alt="User Profile SVG" style={{ height: 50 }} />
+            </span>
+          }
           <span className="profile-name">{this.props.userName}</span>
         </div>
         <div className="app-main__body">

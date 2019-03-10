@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import userSVG from '../images/user-solid.svg';
 import calendarSVG from '../images/calendar-alt-regular.svg';
 import userRegSVG from '../images/user-regular.svg';
 
@@ -9,9 +8,11 @@ class Home extends Component {
     return (
       <div className="app-main">
         <div className="app-main__profile-pic">
-          <span className="profile-pic">
-            <img src={userSVG} alt="User Profile SVG" style={{ height: 30 }} />
-          </span>
+          {this.props.userAvatar &&
+            <span className="profile-pic">
+              <img src={this.props.userAvatar} alt="User Profile SVG" style={{ height: 50 }} />
+            </span>
+          }
         </div>
         <div className="app-main__heading">
           <h1>{this.props.userName}</h1>
