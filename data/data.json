@@ -84,11 +84,27 @@
       "userId": 1,
       "type": "GP appointment",
       "dateTime": "2019-08-30T20:21:30.000Z"
+    },
+    {
+      "userId": 1,
+      "dateTime": "2019-11-27T10:11:00.000Z",
+      "notes": "",
+      "type": "GP appointment",
+      "id": 2
     }
   ],
   "family-members": [
-    { "userId": 1, "id": 2 },
-    { "userId": 1, "id": 3 },
-    { "userId": 1, "id": 4 }
+    {
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "id": 4
+    }
   ]
 }

@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
       userName: '',
       userInitials: '',
+      userId: null,
       availableSlots: [],
       appointments: [],
     };
@@ -39,7 +40,7 @@ class App extends Component {
       if (p) return p[0];
       return undefined;
     }).join('');
-    this.setState({ userName, userInitials })
+    this.setState({ userName, userInitials, userId: userData.id })
   }
 
   setUpSlots(availableSlots) {
@@ -64,7 +65,7 @@ class App extends Component {
           }
           />
           <Route path="/booking" exact render={
-            (props) => <Booking {...props} userName={this.state.userName} availableSlots={this.state.availableSlots} />
+            (props) => <Booking {...props} userName={this.state.userName} availableSlots={this.state.availableSlots} userId={this.state.userId} />
           }
           />
         </div>

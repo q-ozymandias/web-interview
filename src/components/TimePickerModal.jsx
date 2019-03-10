@@ -9,7 +9,14 @@ class TimePickerModal extends Component {
         <div className="time-picker-modal" style={{ top }}>
           <ul className="time-slots">
             {this.props.appointments && this.props.appointments.map((slot, index) => {
-              return <li className="slot" key={index}>{moment(slot).format('MMMM Do, h:mm a')}</li>
+              return (
+                <li
+                  className="slot"
+                  onClick={this.props.chooseTimeSlot}
+                  value={slot}
+                  key={index}>{moment(slot).format('MMMM Do, h:mm a')}
+                </li>
+              )
             })}
           </ul>
         </div>
