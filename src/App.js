@@ -4,29 +4,27 @@ import AppointmentsOverview from './components/AppointmentsOverview'
 import Booking from './components/Booking';
 import Header from './components/Header'
 import Home from './components/Home'
+import request from './api/request';
 
-import { API_ENDPOINT } from './config'
 
 import './App.scss'
 
 class App extends Component {
-  componentDidMount() {
-    fetch(`${API_ENDPOINT}/users/1`)
-      .then(response => response.body)
-      .then(body => {
-        const reader = body.getReader();
-        console.log(reader);
-      })
-      .then(res => {
-        res.json();
-        console.log(res.body);
-      })
-      .then(() => {
-        // TODO: Handle response here
-      })
-      .catch(() => {
-        // TODO: Handle error here
-      })
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName: ''
+    };
+    this.setUpUser = this.setUpUser.bind(this);
+  }
+
+  async componentDidMount() {
+    const userData = await request('users/1', 'GET');
+    this.setUpUser(userData);
+  }
+
+  setUpUser(userData) {
+    console.log(userData);
   }
 
   render() {
