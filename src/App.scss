@@ -79,6 +79,8 @@ header {
   margin: 32px 16px;
 
   &__profile-pic {
+    display: flex;
+    align-items: center;
     margin: 16px 0;
 
     .profile-pic {
@@ -89,6 +91,12 @@ header {
       height: 40px;
       background: $positive;
       border-radius: 50%;
+    }
+
+    .profile-name {
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 16px;
     }
   }
 
