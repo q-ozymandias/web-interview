@@ -5,6 +5,10 @@
   font-size: 14px;
 }
 
+html, body { 
+width: 100%;
+}
+
 header {
   padding: $gutter-size--large;
 
@@ -13,6 +17,26 @@ header {
   }
 
   border-bottom: $border-standard;
+}
+
+.secondary-btn {
+  margin: 8px;
+  padding: 8px;
+  background: #FFFFFF;
+  border: 1px solid $secondary-dark;
+  color: $secondary-dark;
+  border-radius: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background: $secondary-light;
+  }
+
+  &.active {
+    background: $positive;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+  }
 }
 
 .booking-container {
@@ -76,7 +100,7 @@ header {
 }
 
 .app-main {
-  margin: 32px 16px;
+  margin: 0 16px;
 
   &__profile-pic {
     display: flex;
@@ -193,6 +217,46 @@ header {
         border-radius: 50%;
         background: $positive;
       }
+    }
+  }
+}
+
+.time-picker-modal {
+  background: none;
+  width: 300px;
+  max-height: 300px;
+  margin: 20px;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(86, 86, 97, 0.6);
+    height: 100%;
+    width: 100vw;
+  }
+
+  .time-slots {
+    background: #FFFFFF;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    height: 300px;
+  }
+
+  .slot {
+    margin: 0;
+    height: 30px;
+    line-height: 30px;
+    padding: 8px 16px;
+    color: $secondary-dark;
+    cursor: pointer;
+
+    &:nth-child(odd) {
+      background: $secondary-extra-light;
     }
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import videoSVG from '../images/video-solid.svg';
+import moment from 'moment';
+import TimePickerModal from './TimePickerModal';
 import userSVG from '../images/user-solid.svg';
 
 class Booking extends Component {
@@ -22,6 +22,7 @@ class Booking extends Component {
 
     return (
       <div className="app-main">
+        <TimePickerModal />
         <div className="app-main__breadcrumbs"></div>
         <div className="app-main__heading">
           <h1>New Appointment</h1>
@@ -34,19 +35,12 @@ class Booking extends Component {
         </div>
         <div className="app-main__body">
           <h2>Date {'\u0026'} Time</h2>
-          <ul className="app-main__menu">
-            <li className="app-main__menu-link">
-              <Link to="/" className="appointment-link">
-                <span className="appointment-img">
-                  <img src={videoSVG} alt="" style={{ height: 30 }} />
-                </span>
-                <div className="link-text">
-                  <span className="link-text__title">Title</span>
-                  <span className="link-text__details">Details - GP</span>
-                </div>
-              </Link>
-            </li>
-          </ul>
+          <div className="app-main__available-slots">
+            <button className="secondary-btn active">{moment(placeHolderSlots[0]).format('MMMM Do, h:mm a')}</button>
+            <button className="secondary-btn">{moment(placeHolderSlots[1]).format('MMMM Do, h:mm a')}</button>
+            <button className="secondary-btn">{moment(placeHolderSlots[2]).format('MMMM Do, h:mm a')}</button>
+            <button className="secondary-btn">Another Time</button>
+          </div>
         </div>
       </div>
     )
