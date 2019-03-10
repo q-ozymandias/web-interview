@@ -76,13 +76,62 @@ header {
 }
 
 .app-home {
-  .profile-pic {
+  margin: 32px 16px;
+
+  &__profile-pic {
+    margin: 16px 0;
+
+    .profile-pic {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: $positive;
+      border-radius: 50%;
+    }
+  }
+
+  h1 {
+    margin: 16px 0;
+  }
+
+  h2 {
+    margin: 24px 0;
+  }
+
+  &__heading {
+    border-bottom: 1px solid $secondary-light;
+  }
+
+  &__menu {
+    padding-left: 0;
+  }
+
+  &__menu-link {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: $positive;
-    border-radius: 50%;
+    padding: 16px;
+    list-style: none;
+    color: $secondary-dark;
+    cursor: pointer;
+    
+    &:hover {
+      background: $secondary-light;
+    }
+
+    &::after {
+      position: absolute;
+      right: 16px;
+      display: block;
+      content: ' ';
+      background-image: url('./images/angle-right.svg');
+      background-size: 16px 16px;
+      height: 16px;
+      width: 16px;
+    }
+
+    .link-img {
+      margin-right: 16px;
+    }
   }
 }

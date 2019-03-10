@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import userSVG from '../images/user-solid.svg';
+import calendarSVG from '../images/calendar-alt-regular.svg';
+import userRegSVG from '../images/user-regular.svg';
 
 class Home extends Component {
   render() {
@@ -12,7 +14,19 @@ class Home extends Component {
         </div>
         <div className="app-home__heading">
           <h1>Jane Doe</h1>
-
+        </div>
+        <div className="app-home__body">
+          <h2>Clinical Records</h2>
+          <ul className="app-home__menu">
+            <li className="app-home__menu-link">
+              <img src={calendarSVG} alt="" className="link-img" style={{ height: 16 }} />
+              <span className="link-text">Appointments</span>
+            </li>
+            <li className="app-home__menu-link">
+              <img src={userRegSVG} alt="" className="link-img" style={{ height: 16 }} />
+              <span className="link-text">Personal Details</span>
+            </li>
+          </ul>
         </div>
       </div>
     )
