@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import videoSVG from '../images/video-solid.svg';
+import bookAppSVG from '../images/plus-solid.svg';
 
 class AppointmentsOverview extends Component {
   render() {
@@ -9,6 +10,9 @@ class AppointmentsOverview extends Component {
         <div className="app-main__breadcrumbs"></div>
         <div className="app-main__heading">
           <h1>Appointments</h1>
+          <span className="book-apointment">
+            <img src={bookAppSVG} alt="" style={{ height: 20 }} />
+          </span>
         </div>
         <div className="app-main__body">
           <h2>Upcoming</h2>

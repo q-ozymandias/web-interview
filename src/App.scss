@@ -101,7 +101,21 @@ header {
   }
 
   &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid $secondary-light;
+  }
+
+  .book-apointment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $positive;
   }
 
   &__menu {
