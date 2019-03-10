@@ -55,9 +55,18 @@ class App extends Component {
       <Router>
         <div className="app">
           <Header userInitials={this.state.userInitials} />
-          <Route path="/" exact render={(props) => <Home {...props} userName={this.state.userName} />} />
-          <Route path="/appointments" exact render={(props) => <AppointmentsOverview {...props} userName={this.state.userName} appointments={this.state.appointments} />} />
-          <Route path="/booking" exact render={(props) => <Booking {...props} userName={this.state.userName} availableSlots={this.state.availableSlots} />} />
+          <Route path="/" exact render={
+            (props) => <Home {...props} userName={this.state.userName} />
+          }
+          />
+          <Route path="/appointments" exact render={
+            (props) => <AppointmentsOverview {...props} userName={this.state.userName} appointments={this.state.appointments} />
+          }
+          />
+          <Route path="/booking" exact render={
+            (props) => <Booking {...props} userName={this.state.userName} availableSlots={this.state.availableSlots} />
+          }
+          />
         </div>
       </Router >
     )
