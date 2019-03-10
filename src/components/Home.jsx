@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import userSVG from '../images/user-solid.svg';
 import calendarSVG from '../images/calendar-alt-regular.svg';
 import userRegSVG from '../images/user-regular.svg';
@@ -19,12 +20,16 @@ class Home extends Component {
           <h2>Clinical Records</h2>
           <ul className="app-home__menu">
             <li className="app-home__menu-link">
-              <img src={calendarSVG} alt="" className="link-img" style={{ height: 16 }} />
-              <span className="link-text">Appointments</span>
+              <Link to="/">
+                <img src={calendarSVG} alt="" className="link-img" style={{ height: 16 }} />
+                <span className="link-text">Appointments</span>
+              </Link>
             </li>
             <li className="app-home__menu-link">
-              <img src={userRegSVG} alt="" className="link-img" style={{ height: 16 }} />
-              <span className="link-text">Personal Details</span>
+              <Link to="/">
+                <img src={userRegSVG} alt="" className="link-img" style={{ height: 16 }} />
+                <span className="link-text">Personal Details</span>
+              </Link>
             </li>
           </ul>
         </div>

@@ -112,7 +112,6 @@ header {
     display: flex;
     padding: 16px;
     list-style: none;
-    color: $secondary-dark;
     cursor: pointer;
     
     &:hover {
@@ -128,6 +127,11 @@ header {
       background-size: 16px 16px;
       height: 16px;
       width: 16px;
+    }
+
+    a {
+      color: $secondary-extra-dark;
+      text-decoration: none;
     }
 
     .link-img {
