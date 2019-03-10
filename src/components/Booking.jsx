@@ -22,7 +22,7 @@ class Booking extends Component {
 
     return (
       <div className="app-main">
-        <TimePickerModal />
+        {false && <TimePickerModal />}
         <div className="app-main__breadcrumbs"></div>
         <div className="app-main__heading">
           <h1>New Appointment</h1>
@@ -41,6 +41,9 @@ class Booking extends Component {
             <button className="secondary-btn">{moment(placeHolderSlots[2]).format('MMMM Do, h:mm a')}</button>
             <button className="secondary-btn">Another Time</button>
           </div>
+          <h2>Notes</h2>
+          <textarea name="" id="" cols="30" rows="10" className="booking-notes"></textarea>
+          <button className="primary-btn">Book</button>
         </div>
       </div>
     )
