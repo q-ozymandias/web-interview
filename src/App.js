@@ -12,7 +12,15 @@ import './App.scss'
 class App extends Component {
   componentDidMount() {
     fetch(`${API_ENDPOINT}/users/1`)
-      .then(res => res.json())
+      .then(response => response.body)
+      .then(body => {
+        const reader = body.getReader();
+        console.log(reader);
+      })
+      .then(res => {
+        res.json();
+        console.log(res.body);
+      })
       .then(() => {
         // TODO: Handle response here
       })

@@ -147,7 +147,12 @@ header {
   }
 
   h2 {
+    display: flex;
     margin: 24px 0;
+  }
+
+  .heading-imgs {
+    margin-right: 10px;
   }
 
   &__heading {

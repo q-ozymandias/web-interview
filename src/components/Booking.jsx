@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import TimePickerModal from './TimePickerModal';
 import userSVG from '../images/user-solid.svg';
+import clockSVG from '../images/clock-regular.svg';
+import notesSVG from '../images/sticky-note-regular.svg';
 
 class Booking extends Component {
   render() {
@@ -34,14 +36,18 @@ class Booking extends Component {
           <span className="profile-name">Jane Doe</span>
         </div>
         <div className="app-main__body">
-          <h2>Date {'\u0026'} Time</h2>
+          <h2>
+            <img src={clockSVG} alt="Clock SVG" className="heading-imgs" style={{ height: 16 }} />
+            Date {'\u0026'} Time</h2>
           <div className="app-main__available-slots">
             <button className="secondary-btn active">{moment(placeHolderSlots[0]).format('MMMM Do, h:mm a')}</button>
             <button className="secondary-btn">{moment(placeHolderSlots[1]).format('MMMM Do, h:mm a')}</button>
             <button className="secondary-btn">{moment(placeHolderSlots[2]).format('MMMM Do, h:mm a')}</button>
             <button className="secondary-btn">Another Time</button>
           </div>
-          <h2>Notes</h2>
+          <h2>
+            <img src={notesSVG} alt="Notes SVG" className="heading-imgs" style={{ height: 16 }} />
+            Notes</h2>
           <textarea name="" id="" cols="30" rows="10" className="booking-notes"></textarea>
           <button className="primary-btn">Book</button>
         </div>
